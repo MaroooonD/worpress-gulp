@@ -1,6 +1,6 @@
 require('es6-promise').polyfill();
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const scss = require('gulp-sass');
 const pug = require('gulp-pug');
 const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
@@ -25,20 +25,10 @@ gulp.task('pug', function () {
         .pipe(gulp.dest('./html/'))
 });
 
-gulp.task('html', function () {
-    return gulp.src('./html/**.html')
-        .pipe(gulp.dest('./html/'))
-});
-
-gulp.task('sass', function () {
-    return gulp.src('./sass/**/*.scss')
-        .pipe(sass())
+gulp.task('scss', function () {
+    return gulp.src(['./scss/**/*.scss','!./scss/_imports/**/*.scss'])
+        .pipe(scss())
         .pipe(autoprefixer())
-        .pipe(gulp.dest('./css/'))
-});
-
-gulp.task('css', function () {
-    return gulp.src('./css/**.css')
         .pipe(gulp.dest('./css/'))
 });
 
@@ -61,13 +51,15 @@ gulp.task('images', function () {
 
 gulp.task('watch', function () {
     browserSync.init({
-        proxy: 'http://localhost:8001',
-        files: ['./html/**.html', './css/**.css', './js/min/**.js']
+        server: {
+            baseDir: './html/',
+        },
+        files: ['./html/**.html', './css/**.css', './js/min/**.js'],
     });
     gulp.watch('./pug/**/*.pug', gulp.series(['pug']));
-    gulp.watch('./sass/**/*.scss', gulp.series(['sass']));
+    gulp.watch('./scss/**/*.scss', gulp.series(['scss']));
     gulp.watch('./js/*.js', gulp.series(['js']));
     gulp.watch('images/src/*', gulp.series(['images']));
 });
 
-gulp.task('default', gulp.series(['pug', 'sass', 'js', 'images', 'watch']));
+gulp.task('default', gulp.series(['pug', 'scss', 'js', 'images', 'watch']));
