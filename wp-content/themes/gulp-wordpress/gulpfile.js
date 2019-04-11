@@ -1,6 +1,7 @@
 require('es6-promise').polyfill();
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const pug = require('gulp-pug');
 const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
 const jshint = require('gulp-jshint');
@@ -9,6 +10,7 @@ const rename = require("gulp-rename");
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 const plumber = require("gulp-plumber");
+const notify = require("gulp-notify");
 
 const onError = function (err) {
     console.log('An error occurred:', gutil.colors.magenta(err.message));
@@ -16,9 +18,16 @@ const onError = function (err) {
     this.emit('end');
 };
 
-gulp.task('php', function () {
-    return gulp.src('./*.php')
-        .pipe(gulp.dest('./'))
+gulp.task('pug', function () {
+    return gulp.src('./pug/**/*.pug')
+        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+        .pipe(pug({pretty: true}))
+        .pipe(gulp.dest('./html/'))
+});
+
+gulp.task('html', function () {
+    return gulp.src('./html/**.html')
+        .pipe(gulp.dest('./html/'))
 });
 
 gulp.task('sass', function () {
@@ -53,12 +62,12 @@ gulp.task('images', function () {
 gulp.task('watch', function () {
     browserSync.init({
         proxy: 'http://localhost:8001',
-        files: ['./**.php', './css/**.css', './js/min/**.js']
+        files: ['./html/**.html', './css/**.css', './js/min/**.js']
     });
-    gulp.watch('./*.php', gulp.series['php']);
+    gulp.watch('./pug/**/*.pug', gulp.series(['pug']));
     gulp.watch('./sass/**/*.scss', gulp.series(['sass']));
     gulp.watch('./js/*.js', gulp.series(['js']));
     gulp.watch('images/src/*', gulp.series(['images']));
 });
 
-gulp.task('default', gulp.series(['sass', 'js', 'images', 'watch']));
+gulp.task('default', gulp.series(['pug', 'sass', 'js', 'images', 'watch']));
