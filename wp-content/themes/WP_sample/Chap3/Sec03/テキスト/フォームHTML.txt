@@ -1,0 +1,23 @@
+<div class="contactBlock">
+    <dl>
+        <dt>お名前 (必須）</dt>
+        <dd>[text* your-name]</dd>
+    </dl>
+
+    <dl>
+        <dt>メールアドレス (必須）</dt>
+        <dd>[email* your-email]</dd>
+    </dl>
+
+    <dl>
+        <dt>題名</dt>
+        <dd>[text your-subject]</dd>
+    </dl>
+
+    <dl>
+        <dt>メッセージ本文</dt>
+        <dd>[textarea your-message]</dd>
+    </dl>
+
+    <div class="btns">[submit "送信"]</div>
+</div>
