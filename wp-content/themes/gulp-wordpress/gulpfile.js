@@ -19,17 +19,17 @@ const onError = function (err) {
 };
 
 gulp.task('pug', function () {
-    return gulp.src('./pug/**/*.pug')
+    return gulp.src(['./pug/**/*.pug','!./pug/_extends/**/*.pug','!./pug/_includes/**/*.pug'])
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
         .pipe(pug({pretty: true}))
-        .pipe(gulp.dest('./html/'))
+        .pipe(gulp.dest('./public/'))
 });
 
 gulp.task('scss', function () {
     return gulp.src(['./scss/**/*.scss','!./scss/_imports/**/*.scss'])
         .pipe(scss())
         .pipe(autoprefixer())
-        .pipe(gulp.dest('./css/'))
+        .pipe(gulp.dest('./public/'))
 });
 
 gulp.task('js', function () {
@@ -39,22 +39,22 @@ gulp.task('js', function () {
         .pipe(concat('app.js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('./js/min/'))
+        .pipe(gulp.dest('./public/js/'))
 });
 
 gulp.task('images', function () {
     return gulp.src('./images/src/*')
         .pipe(plumber({errorHandler: onError}))
         .pipe(imagemin({optimizationLevel: 7, progressive: true}))
-        .pipe(gulp.dest('./images/dist'));
+        .pipe(gulp.dest('./public/img/'));
 });
 
 gulp.task('watch', function () {
     browserSync.init({
         server: {
-            baseDir: './html/',
+            baseDir: './public/',
         },
-        files: ['./html/**.html', './css/**.css', './js/min/**.js'],
+        files: ['./public/**.html', './public/**.css', './public/**.js'],
     });
     gulp.watch('./pug/**/*.pug', gulp.series(['pug']));
     gulp.watch('./scss/**/*.scss', gulp.series(['scss']));

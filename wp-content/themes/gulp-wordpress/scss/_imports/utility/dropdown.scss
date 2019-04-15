@@ -1,0 +1,55 @@
+.nav {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+}
+
+.gnavi-list-item, .gnavi-drop-list-item {
+    list-style: none;
+    width: 20%;
+}
+
+.gnavi-list-item-link, .gnavi-drop-list-item-link {
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.4rem;
+    background: #000;
+    text-decoration: none;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+    &:hover {
+        border-color: #000;
+        background: #dcdcdc;
+        color: #000;
+    }
+}
+
+.gnavi-drop-list-item-link {
+    margin-left: 40px;
+}
+
+.gnavi-list-item {
+    transition: .2s;
+    &:hover {
+        border-color: #000;
+        background: #FFF;
+        color: #000;
+    }
+}
+
+.gnavi-drop-list {
+    display: none;
+    margin-left: -40px;
+    position: absolute;
+    width: 100%;
+}
+
+.gnavi-drop-list-item-link {
+    border-top: 1px solid #eee;
+}

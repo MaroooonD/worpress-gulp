@@ -1,2 +1,36 @@
-.test
-    p.test テストっすすすaaaaaaaa
+extends ./_extends/layout
+block head
+block contents
+	- var imgPath = 'img/'
+	.top-container
+		.top-recommend
+			.top-recommend__block
+				img.top-recommend__block_image(src=`${imgPath}main.jpg`)
+				p.top-recommend__block_lead Macディスプレイの高解像度を見よ！
+					br
+					| Retinaディスプレイは綺麗
+				a.top-recommend__block_button(href="/") もっと見る
+			.top-recommend__block
+				img.top-recommend__block_image(src=`${imgPath}main.jpg`)
+				p.top-recommend__block_lead Macディスプレイの高解像度を見よ！
+					br
+					| Retinaディスプレイは綺麗
+				a.top-recommend__block_button(href="/") もっと見る
+			.top-recommend__block
+				img.top-recommend__block_image(src=`${imgPath}main.jpg`)
+				p.top-recommend__block_lead Macディスプレイの高解像度を見よ！
+					br
+					| Retinaディスプレイは綺麗
+				a.top-recommend__block_button(href="/") もっと見る
+		.top-wrapper
+			//include _includes/contents/information
+			.information-container
+				.information-heading
+					p.information-heading__date 最終更新日：2019/04/14
+					h2.information-heading__title: a.information-heading__title_link(href="/") タイトルですタイトルですタイトルですタイトルですタイトルですタイトルです
+					a.information-heading__category(href="/") カテゴリー
+				.information-image
+					img.information-image__thumbnail(src=`${imgPath}main.jpg`)
+				.information-content
+					p.information-content__text wordpressで稼ぐのだ！wordpressで稼ぐのだ！wordpressで稼ぐのだ！wordpressで稼ぐのだ！wordpressで稼ぐのだ！wordpressで稼ぐのだ！wordpressで稼ぐのだ！
+			include _includes/contents/sidebar

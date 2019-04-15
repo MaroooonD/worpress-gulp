@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&subset=japanese');
 
-@import '_imports/default';
-@import '_imports/page';
+@import '_imports/base/add_normalize';
+@import '_imports/base/base';
+@import '_imports/base/default';
+@import '_imports/base/mixin';
+@import '_imports/base/normalize';
+
+@import '_imports/component/sidebar';
+@import '_imports/component/layout';
+@import '_imports/component/header';
+@import '_imports/component/information';
+
+@import '_imports/pages/top';
+@import '_imports/pages/page';
+@import '_imports/pages/single';
+
+@import '_imports/utility/dropdown';

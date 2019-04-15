@@ -1,0 +1,42 @@
+@import "../base/mixin";
+
+.sidebar-container {
+    width: 30%;
+}
+
+.sidebar-profile {
+    @include clearfix;
+    border: 1px solid #dcdcdc;
+    text-align: center;
+    padding: 30px 40px;
+}
+
+.sidebar-profile__image {
+    border-radius: 100%;
+    width: 130px;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.sidebar-profile__name {
+    display: block;
+}
+
+.sidebar-profile-__line {
+    height: 4px;
+    width: 30px;
+    background: #0A246A;
+    border: none;
+    margin: 20px auto;
+}
+
+.sidebar-profile__text {
+    text-align: left;
+}
+
+.sidebar-profile__link {
+    display: block;
+    float: right;
+}
+
+
