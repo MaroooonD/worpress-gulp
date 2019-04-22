@@ -1,5 +1,5 @@
 jQuery(function () {
-    var nav = $('.nav');
+    var nav = $('.menu > ul');
     $('li', nav)
         .mouseover(function () {
             $('ul', this).stop().slideDown('fast');
@@ -8,4 +8,3 @@ jQuery(function () {
             $('ul', this).stop().slideUp('fast');
         });
 });
-

@@ -2,43 +2,45 @@ header
 	.header-upper
 		h1.header-upper-heading DaijiroBlog
 		p.header-upper-lead 社会不適合フロントエンジニア
-	ul.gnavi-list.nav
-		li.gnavi-list-item
-			a.gnavi-list-item-link(href="/") TOP
-		li.gnavi-list-item
-			a.gnavi-list-item-link(href="/") コーディング
-			ul.gnavi-drop-list
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-		li.gnavi-list-item
-			a.gnavi-list-item-link(href="/") SEO
-			ul.gnavi-drop-list
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-		li.gnavi-list-item
-			a.gnavi-list-item-link(href="/") hogehoge
-			ul.gnavi-drop-list
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-		li.gnavi-list-item
-			a.gnavi-list-item-link(href="/") hoge
-			ul.gnavi-drop-list
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
-				li.gnavi-drop-list-item
-					a.gnavi-drop-list-item-link(href="/") HTML
+	//fixme: ここの.menuは消しましょう
+	.menu
+		ul
+			li.page_item_has_children
+				a.page_item_has_children-link(href="/") TOP
+			li.page_item_has_children
+				a.page_item_has_children-link(href="/") コーディング
+				ul.children
+					li.page_item_has_children
+						a(href="/") HTML
+					li.page_item_has_children
+						a(href="/") HTML
+					li.page_item_has_children
+						a(href="/") HTML
+			li.page_item_has_children
+				a.page_item_has_children-link(href="/") SEO
+				ul.children
+					li.page_item_has_children
+						a(href="/") HTML
+					li.page_item_has_children
+						a(href="/") HTML
+					li.page_item_has_children
+						a(href="/") HTML
+			li.page_item_has_children
+				a.page_item_has_children-link(href="/") hogehoge
+				ul.children
+					li.page_item_has_children
+						a(href="/") HTML
+					li.page_item_has_children
+						a(href="/") HTML
+					li.page_item_has_children
+						a(href="/") HTML
+			li.page_item_has_children
+				a.page_item_has_children-link(href="/") hoge
+				ul.children
+					li.page_item_has_children
+						a(href="/") HTML
+					li.page_item_has_children
+						a(href="/") HTML
+					li.page_item_has_children
+						a(href="/") HTML
 
